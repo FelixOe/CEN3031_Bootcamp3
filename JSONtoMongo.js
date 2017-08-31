@@ -16,11 +16,9 @@ fs.readFile('listings.json', 'utf8', function (err, data) {
 
     var listingData = JSON.parse(data);
 
-    console.log('# of elements: ' + listingData.entries.length);
-
     for (var i = 0; i < listingData.entries.length; i++) {
 
-        console.log('Code: ' + listingData.entries[i].code);
+        console.log('Adding ' + listingData.entries[i].code);
 
         var item = new Listing();
         item.set('code', listingData.entries[i].code);
@@ -36,8 +34,7 @@ fs.readFile('listings.json', 'utf8', function (err, data) {
                 console.log('Error: ' + error);
                 throw error;
             }
-            console.log('Save successful: ' + item.code);
         });
     }
-    console.log('Finished');
+    console.log('Adding finished');
 });
